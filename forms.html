@@ -21,10 +21,15 @@
     </select><br><br>
    Arrival date*:<br> <input type="date" placeholder="m/d/y" required/><br><br>
   Number of persons*:<br> <input type="number" min="1" max="9" required/><br><br>
-    What would you want to avail: <input type="radio" name="boarding "value ="Boarding" />
-    <br><br> 
-    Discount Coupon code:<br><input type="text" placeholder="UNKNOWN_TYPE" pattern/><br><br>
-    Terms and conditions: <input type="radio" name="button" value="Concordo" required/>I agree 
+    What would you want to avail?*<br>
+    Boarding: <input type="checkbox" name="check" value="Boarding" required><br>
+    Fooding: <input type="checkbox" name="check" value="Fooding" required><br>
+    Sight seeing: <input type="checkbox" name="check" value="Sight" required><br>
+
+    <br>
+    Discount Coupon code:<br><input type="text" placeholder="UNKNOWN_TYPE" maxlength="6"/><br><br>
+    Terms and conditions:<br>
+    <input type="radio" name="button" value="Concordo" required/>I agree 
     <input type="radio" name="button" value="Não Concordo" />I disagree<br><br>
     <input type="submit" value="Complete reservation"/>
 </form>
