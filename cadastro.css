@@ -1,0 +1,27 @@
+td {
+    padding: 0;
+}
+
+input {
+    font-size: 14px;
+    height: 30px;
+}
+
+input[type=button] {
+    width: 90px;
+    height: 50px;
+    cursor: pointer;
+    border: none;
+    background-image: linear-gradient(#f3f3f3 30%, #adadad);
+}
+
+input[type=button]:hover {
+    outline: 1px solid #5ad8ff;
+    background-image: linear-gradient(#f3f3f3 30%, #58b3cfc2);
+}
+
+label {
+    color: slategray;
+    font-size: 14px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
