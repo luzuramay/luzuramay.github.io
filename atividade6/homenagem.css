@@ -1,0 +1,48 @@
+.head {
+    background-color: whitesmoke;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.head header {
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.head a img {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 0;
+}
+
+div.homenagem img {
+    width: 200px;
+    height: 200px;
+}
+
+div.container {
+    height: 600px;
+    background-color: whitesmoke;
+    opacity: 0.9;
+}
+
+.homenagem figure {
+    border: thin #c0c0c0 solid;
+    display: flex;
+    flex-flow: column;
+    padding: 5px;
+    max-width: 220px;
+    margin: auto;
+    position: absolute;
+    left: 70px;
+}
+
+.homenagem figcaption {
+    background-color: #222;
+    color: #fff;
+    font: italic smaller sans-serif;
+    padding: 3px;
+    text-align: center;
+}
