@@ -1,0 +1,55 @@
+header h1 {
+    text-align: left;
+    margin-left: 20px;
+}
+
+main h3 {
+    text-align: left;
+    margin-left: 20px;
+}
+
+main h4 {
+    text-align: left;
+    margin-left: 20px;
+}
+
+header {
+    background-color: whitesmoke;
+    width: auto;
+    height: auto;
+}
+
+#p-header {
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+li {
+    list-style: none;
+}
+
+
+/* figure */
+
+figure {
+    border: thin #c0c0c0 solid;
+    display: flex;
+    flex-flow: column;
+    padding: 5px;
+    max-width: 220px;
+    margin: auto;
+}
+
+img {
+    max-width: 220px;
+    max-height: 200px;
+}
+
+figcaption {
+    background-color: #222;
+    color: #fff;
+    font: italic smaller sans-serif;
+    padding: 3px;
+    text-align: center;
+}
