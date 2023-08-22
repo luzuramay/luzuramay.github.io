@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Survey Form</title>
+</head>
+
+<body>
+
+    <section class="head">
+        <header>
+            <h1>Survey Form</h1>
+        </header>
+    </section>
+
+    <main>
+        <div class="conteiner">
+            <p>Let us Know how we can improve FreeCodeCamp</p>
+            <form method="post">
+                <table>
+
+                    <tr>
+                        <div class="text-type">
+                            <td class="coluna1"><strong>* Name : </strong></td>
+                            <td class="coluna2"><input type="text" placeholder="Enter your Name" required></td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="text-type">
+                            <td class="coluna1"><strong>* Email :</strong></td>
+                            <td class="coluna2"><input type="email" placeholder="Enter your Email " required></td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="text-type">
+                            <td class="coluna1"><strong>* Age :</strong></td>
+                            <td class="coluna2"><input type="number" id="age-input" placeholder="Age" min="1" required></td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="text-type">
+                            <td class="coluna1"><strong> Which option best describes your current role ?</strong></td>
+                            <td class="coluna2">
+                                <select name="role" id="role">
+                                <option value="student">Student</option>
+                                <option value="worker">Worker</option>
+                                <option value="unemployed">Unemployed</option>
+                                <option value="others">Others</option>
+                            </select>
+                            </td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="option">
+                            <td class="coluna1"><strong>* How likely is that you would recommend FreeCodeCamp to a friend ?</strong></td>
+                            <td class="coluna2">
+                                <input type="radio" id="definitly" name="recomendar" value="Definitly"> Definitly
+                                <br>
+                                <input type="radio" id="maybe" name="recomendar" value="Maybe"> Maybe
+                                <br>
+                                <input type="radio" id="not-sure" name="recomendar" value="Not sure">Not sure</td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="text-type">
+                            <td class="coluna1"><strong> What do you like most in FCC:</strong></td>
+                            <td class="coluna2">
+                                <select name="role" id="role">
+                                <option value="standardoption">Select an option</option>
+                                <option value="nothing">Nothing</option>
+                                <option value="everything">Everything</option>
+                                <option value="prefernot">Prefer not to say</option>
+                            </select>
+                            </td>
+                        </div>
+                    </tr>
+                    <tr>
+                        <div class="option">
+                            <td class="coluna1"><strong>Things that should be improved in the future (Check all that apply)</strong></td>
+                            <td class="coluna2">
+                                <input type="checkbox" name="Front-end Projects" value="Front-end Projects" required> Front-end Projects
+                                <br>
+                                <input type="checkbox" name="Back-end Projects" value="Back-end Projects"> Back-end Projects
+                                <br>
+                                <input type="checkbox" name="Data visualization" value="Data visualization"> Data visualization
+                        </div>
+                    </tr>
+                    <tr>
+                        <td class="coluna1"><input type="submit" id="submit" value="Submit"></td>
+                        <td class="coluna2"><input type="reset" id="reset" value="Reset"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </main>
+
+</body>
+
+</html>
