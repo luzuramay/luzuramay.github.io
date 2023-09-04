@@ -118,7 +118,7 @@ p {
     .container {
         grid-template-areas: "a" "b" "c" "d" "e" "f" "g" "h";
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(8, 200px);
+        grid-template-rows: repeat(8, 1fr);
     }
     a {
         font-size: small;
