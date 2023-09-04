@@ -9,6 +9,21 @@ body {
     font-size: 50px;
 }
 
+a {
+    font-size: 20px;
+    text-decoration: underline;
+    color: white;
+}
+
+a:hover {
+    color: rgb(255, 221, 0);
+}
+
+p {
+    font-size: large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 .container {
     width: 100vw;
     height: 100vh;
@@ -25,6 +40,42 @@ body {
     background-color: rgb(226, 43, 128);
     grid-area: a;
     border-radius: 5px;
+    align-items: center;
+}
+
+.one:hover {
+    background-image: url("img/pexels-pixabay-220201\ \(1\).jpg");
+    background-size: 100vh;
+}
+
+.two:hover {
+    background-image: url("img/pexels-anna-tarazevich-5910953.jpg");
+    background-size: 100vh;
+}
+
+.three:hover {
+    background-image: url("img/pexels-oscar-sánchez-11668370.jpg");
+    background-size: 69vh;
+}
+
+.four:hover {
+    background-image: url("img/pexels-julissa-helmuth-3323202.jpg");
+    background-size: 70vh;
+}
+
+.five:hover {
+    background-image: url("img/pexels-mart-production-7089020.jpg");
+    background-size: 100vh;
+}
+
+.six:hover {
+    background-image: url("img/pexels-lisa-fotios-1092644.jpg");
+    background-size: 100vh;
+}
+
+.seven:hover {
+    background-image: url("img/pexels-raymond-mcclintonel-18093254.jpg");
+    background-size: 100vh;
 }
 
 .two {
@@ -68,5 +119,11 @@ body {
         grid-template-areas: "a" "b" "c" "d" "e" "f" "g" "h";
         grid-template-columns: 1fr;
         grid-template-rows: repeat(8, 200px);
+    }
+    a {
+        font-size: small;
+    }
+    h5 {
+        font-size: large;
     }
 }
