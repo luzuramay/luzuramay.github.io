@@ -1,0 +1,78 @@
+h1 {
+    display: flex;
+    justify-content: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(40, 95, 244);
+}
+
+.escondida {
+    display: none;
+}
+
+.div {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    padding: 5px;
+    border-width: small;
+    border-style: solid;
+    border-color: rgb(40, 95, 244);
+}
+
+.container {
+    display: grid;
+    margin-top: 20 px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+input {
+    height: 30px;
+    width: 150px;
+}
+
+.nome input {
+    height: 30;
+    width: 200px;
+}
+
+.nome {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    margin-top: 40px;
+}
+
+.peso {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.altura {
+    margin-top: 10px;
+}
+
+.button {
+    margin-top: 30px;
+    margin-left: 50px;
+}
+
+button {
+    background-color: #255dea;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.resultado {
+    display: none;
+    margin-top: 20px;
+    border-width: small;
+    border-style: solid;
+    border-color: rgb(105, 107, 112);
+}

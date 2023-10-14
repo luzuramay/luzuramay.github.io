@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./imc.css">
+    <title>Calculo IMC</title>
+</head>
+
+<body>
+    <h1>Cálculo do IMC</h1>
+    <div class="div">
+        <div class="container">
+            <form>
+                <div class="nome">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome">
+                </div>
+                <div class="peso">
+                    <label for="peso">Peso:</label>
+                    <input type="text" id="peso">
+                </div>
+                <div class="altura">
+                    <label for="altura">Altura:</label>
+                    <input type="text" id="altura">
+                </div>
+                <div class="button">
+                    <button type="button" id="button" onclick="calcularIMC()">Calcular IMC</button>
+                </div>
+                <div id="minhaDiv" class="resultado">
+                    <p id="imcResultado">Escreva seus dados para obter seu IMC.</p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function calcularIMC() {
+            const nome = document.getElementById('nome').value;
+            const peso = parseFloat(document.getElementById('peso').value);
+            const altura = parseFloat(document.getElementById('altura').value);
+
+            var minhaDiv = document.getElementById('minhaDiv');
+            if (minhaDiv.style.display === 'none') {
+                minhaDiv.style.display = 'block';
+            } else {
+                minhaDiv.style.display = 'none';
+            }
+
+            if (!isNaN(peso) && !isNaN(altura)) {
+                const imc = (peso / (altura * altura)).toFixed(2);
+                document.getElementById("imcResultado").innerHTML = `Olá, ${nome}. O seu IMC é de ${imc}`;
+
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
