@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotron</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="af27c79d-47df-4b39-b3a2-0a35df012b59.jpeg" type="image/x-icon">
+</head>
+
+<body>
+    <h1>Robotron</h1>
+    <div id="robotron">
+        <img src="./img/robotron-vermelho.png" style="display: block;" alt="robotron vermelho">
+        <img src="./img/robotron-rosa.png" style="display: none;" alt="robotron rosa">
+        <img src="./img/robotron-branco.png" style="display: none;" alt="robotron branco">
+        <img src="./img/robotron-amarelo.png" style="display: none;" alt="robotron amarelo">
+        <img src="./img/robotron-preto.png" style="display: none;" alt="robotron preto">
+        <img src="./img/robotron-azul.png" style="display: none;" alt="robotron azul">
+    </div>
+    <div>
+        <button onclick="voltar()">&lt;&lt;</button>
+        <button onclick="avancar()">&gt;&gt;</button>
+    </div>
+    <script>
+        const listaRobotron = document.getElementById("robotron").getElementsByTagName('img');
+        const lastIndex = listaRobotron.length - 1;
+        console.log(listaRobotron)
+        let index = 0;
+
+        function voltar() {
+            esconder(index);
+            index = index === 0 ? lastIndex : index - 1;
+            mostrar(index);
+        }
+
+        function avancar() {
+            esconder(index);
+            index = index === lastIndex ? 0 : index + 1;
+            mostrar(index);
+        }
+
+        function esconder(indexLista) {
+            listaRobotron[indexLista].style.display = "none";
+        }
+
+        function mostrar(indexLista) {
+            listaRobotron[indexLista].style.display = "block";
+        }
+    </script>
+</body>
+
+</html>
