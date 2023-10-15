@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de Pré-Matrícula</title>
+    <link rel="stylesheet" href="atv6.css">
+    <script>
+        function validarFormulario() {
+            var nome = document.getElementById("nome").value;
+            var dataNascimento = document.getElementById("nascimento").value;
+            var nomeMae = document.getElementById("mae").value;
+            var nomePai = document.getElementById("pai").value;
+            var telefone = document.getElementById("telefone").value;
+            var email = document.getElementById("email").value;
+            var serie = document.getElementById("serie").value;
+            var turno = document.querySelector('input[name="turno"]:checked');
+            var atividades = document.querySelectorAll('input[name="atividades"]:checked');
+
+            var dddsValidos = ["11", "12", "13", "14", "15", "16", "17", "18", "19", "21", "22", "24", "27", "28", "31", "32", "33", "34", "35", "37", "38", "41", "42", "43", "44", "45", "46", "47", "48", "49", "51", "53", "54", "55", "61", "62", "63", "64", "65", "66", "67", "68", "69", "71", "73", "74", "75", "77", "79", "81", "82", "83", "84", "85", "86", "87", "88", "89", "91", "92", "93", "94", "95", "96", "97", "98", "99"];
+
+            if (nome === "" || dataNascimento === "" || nomeMae === "" || nomePai === "" || telefone === "" || email === "" || serie === "" || turno === null) {
+                alert("Todos os campos, exceto atividades extracurriculares, são obrigatórios.");
+                return false;
+            }
+
+            var dataNascimentoRegex = /^\d{2}\/\d{2}\/\d{4}$/;
+            if (!dataNascimento.match(dataNascimentoRegex)) {
+                alert("Data de nascimento inválida. Use o formato dd/mm/aaaa.");
+                return false;
+            }
+
+            var emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
+            if (!email.match(emailRegex)) {
+                alert("Endereço de e-mail inválido. Deve conter '@' e '.'.");
+                return false;
+            }
+
+            var telefoneRegex = /^\d{2}\d{8,9}$/;
+            if (!telefone.match(telefoneRegex) || dddsValidos.indexOf(telefone.substr(0, 2)) === -1) {
+                alert("Número de telefone inválido. Use um DDD válido e 8 ou 9 dígitos.");
+                return false;
+            }
+
+            if (atividades.length > 3) {
+                alert("Selecione no máximo 3 atividades extracurriculares.");
+                return false;
+            }
+
+            alert("Cadastro realizado com sucesso!");
+            return true;
+        }
+
+        function limparCampos() {
+            document.getElementById("nome").value = "";
+            document.getElementById("nascimento").value = "";
+            document.getElementById("mae").value = "";
+            document.getElementById("pai").value = "";
+            document.getElementById("telefone").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("serie").value = "";
+            document.querySelectorAll('input[name="turno"]').forEach(function(checkbox) {
+                checkbox.checked = false;
+            });
+            document.querySelectorAll('input[name="atividades"]').forEach(function(checkbox) {
+                checkbox.checked = false;
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Formulário de Pré-Matrícula</h1>
+    <form onsubmit="return validarFormulario()">
+        <hr>
+        <h3>Dados Pessoais:</h3>
+        <label for="nome">Nome do Aluno:</label>
+        <input type="text" id="nome" required><br><br>
+
+        <label for="nascimento">Data de Nascimento:</label>
+        <input type="text" id="nascimento" placeholder="dd/mm/aaaa" required><br><br>
+
+        <label for="mae">Nome da Mãe:</label>
+        <input type="text" id="mae" required><br><br>
+
+        <label for="pai">Nome do Pai:</label>
+        <input type="text" id="pai" required><br><br>
+
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" placeholder="DDXXXXXXXXX" required><br><br>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" required><br><br>
+
+        <hr>
+        <h3>Informações de Matrícula:</h3>
+
+        <label for="serie">Série:</label>
+        <select id="serie" required>
+            <option value=""></option>
+            <option value="1">1ª Série</option>
+            <option value="2">2ª Série</option>
+            <option value="3">3ª Série</option>
+        </select><br><br>
+
+        <label>Turno:</label><br>
+        <label for="manha">Manhã</label>
+        <input type="checkbox" id="manha" name="turno"><br>
+        <label for="tarde">Tarde</label>
+        <input type="checkbox" id="tarde" name="turno"><br><br>
+
+
+        <label>Atividades Extracurriculares:</label><br>
+        <label for="esporte">Informática</label>
+        <input type="checkbox" id="info" name="atividades"><br>
+        <label for="musica">Música</label>
+        <input type="checkbox" id="musica" name="atividades"><br>
+        <label for="arte">Balet</label>
+        <input type="checkbox" id="balet" name="atividades"><br>
+        <label for="teatro">Pintura</label>
+        <input type="checkbox" id="pintura" name="atividades"><br>
+        <label for="teatro">Judô</label>
+        <input type="checkbox" id="judo" name="atividades"><br>
+        <label for="teatro">Futebol</label>
+        <input type="checkbox" id="futebol" name="atividades"><br>
+        <hr>
+
+        <input type="submit" value="Enviar Formulário" id="submit">
+        <button type="button" onclick="limparCampos()">Limpar Campos</button>
+    </form>
+</body>
+
+</html>
