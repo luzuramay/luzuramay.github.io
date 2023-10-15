@@ -1,0 +1,49 @@
+body {
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+button {
+    background-color: #255dea;
+    border: none;
+    color: white;
+    padding: 10px 22px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#resumoGastos {
+    border: solid 1px black;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#btnAdd {
+    margin-top: 30px;
+}
+
+table {
+    padding: 20px;
+}
+
+#valor,
+#categoria,
+#data {
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+#categoria {
+    margin-right: 40px;
+}
+
+#data {
+    margin-right: 55px;
+}

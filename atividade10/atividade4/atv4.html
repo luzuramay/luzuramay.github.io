@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registro de Gastos</title>
+    <link rel="stylesheet" href="atv4.css">
+</head>
+
+<body>
+    <h1>Informações de Gastos</h1>
+    <div>
+        <label for="categoria">Categoria:</label>
+        <select id="categoria">
+            <option value="Alimentação">Alimentação</option>
+            <option value="Transporte">Transporte</option>
+            <option value="Moradia">Moradia</option>
+            <option value="Lazer">Lazer</option>
+            <option value="Outros">Outros</option>
+        </select>
+    </div>
+    <div>
+        <label for="valor">Valor:</label>
+        <input type="number" id="valor">
+    </div>
+    <div>
+        <label for="data">Data:</label>
+        <input type="date" id="data">
+    </div>
+    <button onclick="adicionarGasto()" id="btnAdd">Adicionar</button>
+
+    <h2>Lista de Gastos</h2>
+    <table id="tabelaGastos">
+        <tr>
+            <th>Data</th>
+            <th>Categoria</th>
+            <th>Valor</th>
+        </tr>
+    </table>
+
+
+    <button onclick="calcularResumo()">Calcular Resumo</button>
+
+    <div id="resumoGastos" style="display: none;">
+        <h2>RESUMO</h2>
+        <p>Total de Gastos: R$ <span id="totalGastos"></span></p>
+        <h3>Resumo por Categoria</h3>
+        <div id="resumoPorCategoria"></div>
+    </div>
+
+    <script>
+        const gastosPorCategoria = {};
+
+        function adicionarGasto() {
+            const data = document.getElementById("data").value;
+            const categoria = document.getElementById("categoria").value;
+            const valor = parseFloat(document.getElementById("valor").value);
+
+            if (data && categoria && !isNaN(valor)) {
+                const tabelaGastos = document.getElementById("tabelaGastos");
+                const row = tabelaGastos.insertRow(-1);
+                const cell1 = row.insertCell(0);
+                const cell2 = row.insertCell(1);
+                const cell3 = row.insertCell(2);
+                cell1.innerHTML = data;
+                cell2.innerHTML = categoria;
+                cell3.innerHTML = valor.toFixed(2);
+
+                if (gastosPorCategoria[categoria]) {
+                    gastosPorCategoria[categoria] += valor;
+                } else {
+                    gastosPorCategoria[categoria] = valor;
+                }
+            }
+        }
+
+        function calcularResumo() {
+            const tabelaGastos = document.getElementById("tabelaGastos");
+            let total = 0;
+
+            for (let i = 1; i < tabelaGastos.rows.length; i++) {
+                total += parseFloat(tabelaGastos.rows[i].cells[2].innerHTML);
+            }
+
+            const totalGastosElement = document.getElementById("totalGastos");
+            totalGastosElement.textContent = total.toFixed(2);
+
+            const resumoGastos = document.getElementById("resumoGastos");
+            resumoGastos.style.display = "block";
+
+            const resumoPorCategoria = document.getElementById("resumoPorCategoria");
+            resumoPorCategoria.innerHTML = "";
+            for (const categoria in gastosPorCategoria) {
+                resumoPorCategoria.innerHTML += `<p>${categoria}: R$ ${gastosPorCategoria[categoria].toFixed(2)}</p>`;
+            }
+        }
+    </script>
+</body>
+
+</html>
