@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Robotron Properties</title>
+    <link rel="stylesheet" href="atv5.css">
+</head>
+
+<body>
+    <div class="robotron">
+        <img src="./img/robotron-branco.png" alt="robotron">
+    </div>
+    <div class="container">
+        <div class="property">
+            <p>BRAÇOS</p>
+            <button class="decrement">-</button>
+            <span class="value">0</span>
+            <button class="increment">+</button>
+        </div>
+        <hr>
+        <div class="property">
+            <p>BLINDAGEM</p>
+            <button class="decrement">-</button>
+            <span class="value">0</span>
+            <button class="increment">+</button>
+        </div>
+        <hr>
+        <div class="property">
+            <p>NÚCLEOS</p>
+            <button class="decrement">-</button>
+            <span class="value">0</span>
+            <button class="increment">+</button>
+        </div>
+        <hr>
+        <div class="property">
+            <p>PERNAS</p>
+            <button class="decrement">-</button>
+            <span class="value">0</span>
+            <button class="increment">+</button>
+        </div>
+    </div>
+
+    <script>
+        function updatePropertyValue(element, increment) {
+            const valueElement = element.querySelector(".value");
+            let value = parseInt(valueElement.innerText);
+
+            if (increment) {
+                if (value < 10) {
+                    value++;
+                }
+            } else {
+                if (value > 0) {
+                    value--;
+                }
+            }
+
+            valueElement.innerText = value;
+        }
+
+        const propertyElements = document.querySelectorAll(".property");
+        propertyElements.forEach((element) => {
+            const incrementButton = element.querySelector(".increment");
+            const decrementButton = element.querySelector(".decrement");
+
+            incrementButton.addEventListener("click", () => {
+                updatePropertyValue(element, true);
+            });
+
+            decrementButton.addEventListener("click", () => {
+                updatePropertyValue(element, false);
+            });
+        });
+    </script>
+</body>
+
+</html>

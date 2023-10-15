@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+button {
+    background-color: #255dea;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.container {
+    background-color: rgb(108, 165, 182);
+    border: solid 1px rgb(136, 115, 244);
+}
+
+span,
+p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+img {
+    width: 200px;
+}
