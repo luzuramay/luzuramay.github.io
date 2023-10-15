@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Contagem de Vogais</title>
+    <link rel="stylesheet" href="atv3.css">
+</head>
+
+<body>
+    <h1>Contagem de Vogais</h1>
+    <form>
+        <label for="inputString">Digite uma string: </label>
+        <input type="text" id="inputString">
+        <button type="button" onclick="contarEVoltar()">Contar Vogais</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        function contarEVoltar() {
+            var inputString = document.getElementById('inputString').value;
+            var lowercaseString = inputString.toLowerCase();
+            var count = 0;
+
+            for (var i = 0; i < lowercaseString.length; i++) {
+                var char = lowercaseString.charAt(i);
+                if (char === 'a' || char === 'e' || char === 'i' || char === 'o' || char === 'u') {
+                    count++;
+                }
+            }
+
+            var resultElement = document.getElementById('result');
+            resultElement.textContent = 'Número de vogais na string: ' + count;
+        }
+    </script>
+</body>
+
+</html>
