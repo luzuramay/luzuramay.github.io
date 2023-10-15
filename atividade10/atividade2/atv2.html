@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Insert row in a table</title>
+    <link rel="stylesheet" href="atv2.css">
+</head>
+
+<body>
+    <input type="text" id="txtNumRows" />
+    <button id="jsAddRows" onclick="js_add_rows()">Add Rows</button>
+    <p id="errorMessage"></p>
+    <table id="sampleTable" border="1">
+        <tr>
+            <td>Row1 cell1</td>
+            <td>Row1 cell2</td>
+        </tr>
+        <tr>
+            <td>Row2 cell1</td>
+            <td>Row2 cell2</td>
+        </tr>
+    </table><br>
+
+    <script>
+        function js_add_rows() {
+            var inputElement = document.getElementById('txtNumRows');
+            var value = inputElement.value;
+
+            if (isNaN(value)) {
+                document.getElementById('errorMessage').textContent = 'Só aceita valores numéricos.';
+                return;
+            }
+
+            var numValue = parseInt(value);
+
+            if (numValue < 1 || numValue > 10) {
+                document.getElementById('errorMessage').textContent = 'Valores válidos são entre 1 e 10.';
+            } else {
+                document.getElementById('errorMessage').textContent = '';
+
+                var table = document.getElementById('sampleTable');
+                for (var i = 0; i < numValue; i++) {
+                    var newRow = table.insertRow(table.rows.length);
+                    var cell1 = newRow.insertCell(0);
+                    var cell2 = newRow.insertCell(1);
+                    cell1.innerHTML = 'Nova linha cell1';
+                    cell2.innerHTML = 'Nova linha cell2';
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
