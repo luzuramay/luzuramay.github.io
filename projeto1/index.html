@@ -20,26 +20,53 @@
             color: blueviolet;
         }
 
-        
     </style>
-    <script>
-   function mudar (){
-    document.getElementById("demo").innerHTML = "ola"
-   }
-   
-
-        
-      
-    </script>
 </head>
 <body>
     <h1>Manipulando o DOM</h1>
     <p id="demo">Bem vindo ao Coding Dojo!</p>
-    <button id="button" onclick="mudar()">Alterar Texto</button><br>
-    
-        <ul>
-            <li></li>
-        </ul>
-    
+    <button id="button" >Alterar Texto</button><br>
+    <br>
+   
+
+  <input type="text" id="item-input" placeholder="Digite um item">
+<input type="date" id="date-input">
+<button onclick="adicionarItem()">Adicionar</button>
+<button onclick="removerItem()">Remover</button>
+<ul id="minha-lista"></ul>
+    <script>
+
+        const paragrafo = document.querySelector("#demo");
+        const botao1 = document.querySelector("#button");
+
+        botao1.addEventListener('click', function() {
+            paragrafo.textContent = "ola"
+        })
+  
+   function adicionarItem() {
+    var input = document.getElementById('item-input');
+    var dateInput = document.getElementById('date-input');
+    var item = input.value;
+    var date = dateInput.value;
+
+    if (item.trim() !== '' && date.trim() !== '') {
+        var lista = document.getElementById('minha-lista');
+        var novoItem = document.createElement('li');
+        novoItem.textContent = item + ' - ' + date;
+        lista.insertBefore(novoItem, lista.firstChild);
+        input.value = '';
+        dateInput.value = '';
+    }
+   }
+
+function removerItem() {
+    var lista = document.getElementById('minha-lista');
+    var ultimoItem = lista.lastElementChild;
+    if (ultimoItem) {
+        lista.removeChild(ultimoItem);
+    }
+}
+
+    </script>
 </body>
 </html>
