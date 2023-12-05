@@ -12,7 +12,6 @@
             margin: 50px;
         }
         h1 {
-            
             color: #0078f0;
         }
 
@@ -20,6 +19,14 @@
             color: blueviolet;
         }
 
+        .completed {
+            text-decoration: line-through;
+            color: red;
+        }
+
+        li.completed {
+            text-decoration: line-through;
+        }   
     </style>
 </head>
 <body>
@@ -27,46 +34,58 @@
     <p id="demo">Bem vindo ao Coding Dojo!</p>
     <button id="button" >Alterar Texto</button><br>
     <br>
-   
+    <input type="text" id="item-input" placeholder="Digite um item">
+    <input type="date" id="date-input">
+    <button onclick="adicionarItem()">Adicionar</button>
+    <button onclick="removerTodosItens()">Remover Todos</button>
+    <ul id="minha-lista"></ul>
 
-  <input type="text" id="item-input" placeholder="Digite um item">
-<input type="date" id="date-input">
-<button onclick="adicionarItem()">Adicionar</button>
-<button onclick="removerItem()">Remover</button>
-<ul id="minha-lista"></ul>
     <script>
-
         const paragrafo = document.querySelector("#demo");
         const botao1 = document.querySelector("#button");
 
         botao1.addEventListener('click', function() {
             paragrafo.textContent = "ola"
-        })
-  
-   function adicionarItem() {
-    var input = document.getElementById('item-input');
-    var dateInput = document.getElementById('date-input');
-    var item = input.value;
-    var date = dateInput.value;
+        });
 
-    if (item.trim() !== '' && date.trim() !== '') {
-        var lista = document.getElementById('minha-lista');
-        var novoItem = document.createElement('li');
-        novoItem.textContent = item + ' - ' + date;
-        lista.insertBefore(novoItem, lista.firstChild);
-        input.value = '';
-        dateInput.value = '';
-    }
-   }
+        function adicionarItem() {
+            var input = document.getElementById('item-input');
+            var dateInput = document.getElementById('date-input');
+            var item = input.value;
+            var date = dateInput.value;
 
-function removerItem() {
-    var lista = document.getElementById('minha-lista');
-    var ultimoItem = lista.lastElementChild;
-    if (ultimoItem) {
-        lista.removeChild(ultimoItem);
-    }
-}
+            if (item.trim() !== '' && date.trim() !== '') {
+                var lista = document.getElementById('minha-lista');
 
+                const checkbox = document.createElement('input');
+                checkbox.type = "checkbox";
+                checkbox.addEventListener("change", function(){
+                    if(checkbox.checked){
+                        novoItem.classList.add("completed");
+                        lista.appendChild(novoItem);
+                    } else {
+                        novoItem.classList.remove("completed");
+                        lista.insertBefore(novoItem, lista.firstChild);
+                    }
+                });
+
+                var novoItem = document.createElement('li');
+                novoItem.textContent = item + ' - ' + date;
+
+                novoItem.appendChild(checkbox);
+
+                lista.insertBefore(novoItem, lista.firstChild);
+
+                input.value = '';
+                dateInput.value = '';
+            }
+        }
+
+
+        function removerTodosItens() {
+            var lista = document.getElementById('minha-lista');
+            lista.innerHTML = ''; 
+        }
     </script>
 </body>
 </html>
