@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Usuário</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Perfil do Usuário</h5>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Nome de usuário:</strong> <%= user.username %></p>
+                        <p><strong>Nome:</strong> <%= user.name %></p>
+                        <p><strong>Email:</strong> <%= user.email %></p>
+                        <!-- Adicione mais informações do usuário conforme necessário -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
