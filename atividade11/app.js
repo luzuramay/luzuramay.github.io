@@ -14,10 +14,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Array de usuários cadastrados (simulação)
 const users = [
-    { email: 'admin@gmail.com', password: 'admin123' },
-    { email: 'user@gmail.com', password: 'user123' },
-    { email: 'leo@gmail.com', password: 'leo123' },
-    { email: 'mayara@gmail.com', password: 'mayara123' }
+    { email: 'admin@gmail.com', password: 'admin123', name: 'Admin' },
+    { email: 'user@gmail.com', password: 'user123', name: 'User' },
+    { email: 'leo@gmail.com', password: 'leo123', name: 'Leo' },
+    { email: 'mayara@gmail.com', password: 'mayara123', name: 'Mayara' }
 ];
 
 // Rota para a página inicial
@@ -59,4 +59,47 @@ app.post('/login', (req, res) => {
         res.render('loginerror.ejs');
     }
 });
+
+// Rota para renderizar a página de registro
+app.get('/registro', (req, res) => {
+    res.render('registro', { erro: null }); // Passando null para erro inicialmente
+});
+
+// Rota para processar o formulário de registro
+app.post('/registro', (req, res) => {
+    const { nome, email, senha } = req.body;
+
+    // Verificar se o email já está cadastrado
+    const usuarioExistente = users.find(user => user.email === email);
+    if (usuarioExistente) {
+        res.render('registro', { erro: 'Este email já está cadastrado.' });
+    } else {
+        // Adicionar novo usuário à array de usuários
+        users.push({ nome, email, senha });
+        // Redirecionar para a página de sucesso após o registro
+        res.render('login');
+    }
+});
+
+// Rota GET para renderizar a página de listagem de usuários
+app.get('/lista', (req, res) => {
+    res.render('lista', { users });
+});
+
+// Rota POST para excluir um usuário
+app.post('/lista/:id/excluir', (req, res) => {
+    const userId = req.params.id;
+
+    // Encontra o índice do usuário no array de usuários
+    const index = users.findIndex(user => user.id === userId);
+
+    // Se o usuário existe, remove-o do array de usuários
+    if (index !== -1) {
+        users.splice(index, 1);
+    }
+
+    // Redireciona de volta para a página de listagem de usuários após a exclusão
+    res.redirect('/lista');
+});
+
 
