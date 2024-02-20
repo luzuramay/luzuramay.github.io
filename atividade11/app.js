@@ -81,25 +81,22 @@ app.post('/registro', (req, res) => {
     }
 });
 
-// Rota GET para renderizar a página de listagem de usuários
-app.get('/lista', (req, res) => {
-    res.render('lista', { users });
+app.get('/lista', (req, res) => res.render('lista'));
+
+app.post('/lista/json', (req, res) => {
+    const userIndex = pessoas.findIndex(user => user.name === req.body.name && user.email === req.body.email);
+    pessoas.splice(userIndex, 1);
+    return res.status(204).json()
 });
 
-// Rota POST para excluir um usuário
-app.post('/lista/:id/excluir', (req, res) => {
-    const userId = req.params.id;
-
-    // Encontra o índice do usuário no array de usuários
-    const index = users.findIndex(user => user.id === userId);
-
-    // Se o usuário existe, remove-o do array de usuários
-    if (index !== -1) {
-        users.splice(index, 1);
-    }
-
-    // Redireciona de volta para a página de listagem de usuários após a exclusão
-    res.redirect('/lista');
+app.get('/lista/json', (req, res) => {
+    res.status(200).json({
+        pessoas: pessoas.map(user => {
+            return { name: user.name, email: user.email }
+        })
+    });
 });
+
+
 
 
