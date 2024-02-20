@@ -67,7 +67,7 @@ app.get('/registro', (req, res) => {
 
 // Rota para processar o formulário de registro
 app.post('/registro', (req, res) => {
-    const { nome, email, senha } = req.body;
+    const { name, email, password, password_confirm } = req.body;
 
     // Verificar se o email já está cadastrado
     const usuarioExistente = users.find(user => user.email === email);
@@ -75,7 +75,7 @@ app.post('/registro', (req, res) => {
         res.render('registro', { erro: 'Este email já está cadastrado.' });
     } else {
         // Adicionar novo usuário à array de usuários
-        users.push({ nome, email, senha });
+        users.push({ name, email, password });
         // Redirecionar para a página de sucesso após o registro
         res.render('login');
     }
@@ -84,14 +84,14 @@ app.post('/registro', (req, res) => {
 app.get('/lista', (req, res) => res.render('lista'));
 
 app.post('/lista/json', (req, res) => {
-    const userIndex = pessoas.findIndex(user => user.name === req.body.name && user.email === req.body.email);
-    pessoas.splice(userIndex, 1);
+    const userIndex = users.findIndex(user => user.name === req.body.name && user.email === req.body.email);
+    users.splice(userIndex, 1);
     return res.status(204).json()
 });
 
 app.get('/lista/json', (req, res) => {
     res.status(200).json({
-        pessoas: pessoas.map(user => {
+        pessoas: users.map(user => {
             return { name: user.name, email: user.email }
         })
     });
